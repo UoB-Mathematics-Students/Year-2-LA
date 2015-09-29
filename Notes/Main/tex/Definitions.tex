@@ -1,0 +1,36 @@
+\chapter{Definitions}
+
+\begin{mydef}
+\normalfont Let \(X,Y\) be sets. The \underline{Cartesian} product of \(X\) and \(Y\) is the set \(X \times Y = \{(x, y) : x \in X, y \in Y\}\)
+\end{mydef}
+
+\begin{mydef}
+\normalfont Let \(f, g : X \to Y\), then \(f = g \Leftrightarrow f(x) = g(x), \forall x \in X\)
+\end{mydef}
+
+\begin{mydef}
+\normalfont A \underline{binary operation} on a set \(X\) is a function from \(X \times X\) to \(X\).
+\end{mydef}
+
+\begin{mydef}
+\normalfont A \underline{field} is a set \(\field\) equipped with two binary operations: 
+\begin{itemize}
+	\item \(+: \field \times \field \to \field\)
+	\item \(\cdot: \field \times \field \to \field\)
+\end{itemize}
+%
+satisfying the following axioms:
+\begin{equation}\forall a,b,c \in \field : (a + b) + c = a + (b + c) \tag{F1}\end{equation}
+\begin{equation}\forall a,b \in \field : a + b = b + a \tag{F2} \end{equation}
+\begin{equation}\exists 0 \in \field : \forall a \in \field : a + 0 = a \tag{F3}\end{equation}
+\begin{equation}\forall a \in \field, \exists(-a)\in\field:a+(-a)=0 \tag{F4}\end{equation}
+%
+\begin{equation}\forall a,b,c\in\field : a\cdot(b \cdot c) = (a \cdot b) \cdot c \tag{F5}\end{equation}
+\begin{equation}\forall a,b\in\field : a \cdot b = b \cdot a \tag{F6}\end{equation}
+\begin{equation}\exists 1\in\field : 1 \ne 0 \text{ and } \forall a\in\field : 1\cdot a = a \tag{F7}\end{equation}
+\begin{equation}\forall a\in\field : a\ne 0, \exists a^{-1} \in \field : a\cdot a^{-1} = 1 \tag{F8}\end{equation}
+%
+\begin{equation}\forall a,b,c\in\field:a\cdot(b+c) = (a\cdot b) + (a\cdot c) \tag{F9}\end{equation}
+
+\textit{Notice that F1 and F5 demonstrate associativity; F2 and F6---commutitivity; F3 and F7---identity existence; F4 and F8---inverse existence; and F9 demonstrates distributivity with respect to addition}.
+\end{mydef}
