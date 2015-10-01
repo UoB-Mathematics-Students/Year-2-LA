@@ -12,6 +12,7 @@
 \normalfont A \underline{binary operation} on a set \(X\) is a function from \(X \times X\) to \(X\).
 \end{mydef}
 
+\section{Fields}
 \begin{mydef}
 \normalfont A \underline{field} is a set \(\field\) equipped with two binary operations: 
 \begin{itemize}
@@ -34,3 +35,39 @@ satisfying the following axioms:
 
 \textit{Notice that F1 and F5 demonstrate associativity; F2 and F6---commutitivity; F3 and F7---identity existence; F4 and F8---inverse existence; and F9 demonstrates distributivity with respect to addition}.
 \end{mydef}
+
+\begin{mythm}\normalfont
+Let \(\field\) be a field. Then
+\begin{enumerate}
+	\item the element 0 satisfying property (F3) is unique.
+	\item for each \(a \in \field\), the element \((-a)\) satisfying (F4) is unique.
+	\item the element 1 satisfying (F7) is unique.
+	\item for each \(a\in\field : a \ne 0\), the element \(a^{-1}\) satisfying (F8) is unique.
+\end{enumerate}
+\end{mythm}
+
+\section{Vector Spaces}
+\begin{mydef}\normalfont
+Let \(\field\) be a field. A vector space over \(\field\) is a set \(V\) together with two operations: \(+: V\times V \to V\) and \(\cdot:\field\times V\to V\) satisfying the following axioms:
+%
+\begin{equation}\forall u,v,w\in V : u+(v+w)=(u+v)+w\tag{VS1}\end{equation}
+\begin{equation}\forall u,v\in V : u+v=v+u\tag{VS2}\end{equation}
+\begin{equation}\exists0\in V \text{ s.t. } \forall u\in V : u + 0 = u\tag{VS3}\end{equation}
+\begin{equation}\forall u\in V, \exists(-u)\in V : u+(-u) = 0\tag{VS4}\end{equation}
+\begin{equation}\forall a,b \in \field, u \in V : a(bu) = (ab)u\tag{VS5}\end{equation}
+\begin{equation}\forall a\in\field, \forall u,v\in V : a(u+v) = au+av\tag{VS6}\end{equation}
+\begin{equation}\forall a,\in\field, \forall u\in V : (a+b)u = au+bu\tag{VS7}\end{equation}
+\begin{equation}\forall u\in V : 1\cdot u=u\tag{VS8}\end{equation}
+
+\textit{Notice that VS1 and VS5 refer to associativity; VS2 to commutivity; VS3 to and VS8 to identity; VS4 to inverse; and VS6 and VS7 to distributivity}.
+\end{mydef}
+
+\begin{mythm} \normalfont
+Let \(V\) be a vector space over a field \(\field\). Then 
+\begin{enumerate}
+	\item the element 0 satisfying (VS3) is unique
+	\item \(\forall u\in V\), the element \((-u)\) satisfying (VS4) is unique.
+\end{enumerate}
+\end{mythm}
+
+
