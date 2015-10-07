@@ -1,5 +1,5 @@
 @ECHO off
-ECHO Deleting .pdf, .aux, .log, .gz and .toc files.
+ECHO Deleting .aux, .log, .gz and .toc files.
 
 FOR /R %%i IN ("*.log") DO DEL "%%i"
 FOR /R %%i IN ("*.aux") DO DEL "%%i"
