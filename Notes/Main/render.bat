@@ -1,0 +1,1 @@
+pdflatex -quiet Notes.tex

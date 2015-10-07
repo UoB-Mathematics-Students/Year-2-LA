@@ -3,10 +3,22 @@
 \newcommand{\repolink}{https://github.com/UoB-Mathematics-Students/Year-2-LA}
 
 \usepackage{amsmath, amssymb, amsthm}
+%Fix spacing before theorems.
+\begingroup
+    \makeatletter
+    \@for\theoremstyle:=definition,remark,plain\do{%
+        \expandafter\g@addto@macro\csname th@\theoremstyle\endcsname{%
+            \addtolength\thm@preskip\parskip
+            }%
+        }
+\endgroup
+
+\usepackage[parfill]{parskip}
 
 \newtheorem{mydef}{Definition}
 \newtheorem{mythm}{Theorem}
 
 \newcommand{\field}{\mathbb{F}}
+\newcommand{\real}{\mathbb{R}}
 
 \setlength\parindent{0pt}

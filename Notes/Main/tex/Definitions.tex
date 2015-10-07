@@ -1,5 +1,6 @@
 \chapter{Definitions}
-
+\section{Vector Spaces and Fields}
+\subsection{Fields}
 \begin{mydef}
 \normalfont Let \(X,Y\) be sets. The \underline{Cartesian} product of \(X\) and \(Y\) is the set \(X \times Y = \{(x, y) : x \in X, y \in Y\}\)
 \end{mydef}
@@ -12,7 +13,6 @@
 \normalfont A \underline{binary operation} on a set \(X\) is a function from \(X \times X\) to \(X\).
 \end{mydef}
 
-\section{Fields}
 \begin{mydef}
 \normalfont A \underline{field} is a set \(\field\) equipped with two binary operations: 
 \begin{itemize}
@@ -46,18 +46,18 @@ Let \(\field\) be a field. Then
 \end{enumerate}
 \end{mythm}
 
-\section{Vector Spaces}
+\subsection{Vector Spaces}
 \begin{mydef}\normalfont
 Let \(\field\) be a field. A vector space over \(\field\) is a set \(V\) together with two operations: \(+: V\times V \to V\) and \(\cdot:\field\times V\to V\) satisfying the following axioms:
 %
 \begin{equation}\forall u,v,w\in V : u+(v+w)=(u+v)+w\tag{VS1}\end{equation}
 \begin{equation}\forall u,v\in V : u+v=v+u\tag{VS2}\end{equation}
-\begin{equation}\exists0\in V \text{ s.t. } \forall u\in V : u + 0 = u\tag{VS3}\end{equation}
-\begin{equation}\forall u\in V, \exists(-u)\in V : u+(-u) = 0\tag{VS4}\end{equation}
-\begin{equation}\forall a,b \in \field, u \in V : a(bu) = (ab)u\tag{VS5}\end{equation}
-\begin{equation}\forall a\in\field, \forall u,v\in V : a(u+v) = au+av\tag{VS6}\end{equation}
-\begin{equation}\forall a,\in\field, \forall u\in V : (a+b)u = au+bu\tag{VS7}\end{equation}
-\begin{equation}\forall u\in V : 1\cdot u=u\tag{VS8}\end{equation}
+\begin{equation}\exists0\in V \text{ s.t. } \forall u\in V : u + 0 = u \tag{VS3}\end{equation}
+\begin{equation}\forall u\in V, \exists(-u)\in V : u+(-u) = 0 \tag{VS4}\end{equation}
+\begin{equation}\forall a,b \in \field, u \in V : a(bu) = (ab)u \tag{VS5}\end{equation}
+\begin{equation}\forall a\in\field, \forall u,v\in V : a(u+v) = au+av \tag{VS6}\end{equation}
+\begin{equation}\forall a,\in\field, \forall u\in V : (a+b)u = au+bu \tag{VS7}\end{equation}
+\begin{equation}\forall u\in V : 1\cdot u=u \tag{VS8}\end{equation}
 
 \textit{Notice that VS1 and VS5 refer to associativity; VS2 to commutivity; VS3 to and VS8 to identity; VS4 to inverse; and VS6 and VS7 to distributivity}.
 \end{mydef}
@@ -66,8 +66,125 @@ Let \(\field\) be a field. A vector space over \(\field\) is a set \(V\) togethe
 Let \(V\) be a vector space over a field \(\field\). Then 
 \begin{enumerate}
 	\item the element 0 satisfying (VS3) is unique
-	\item \(\forall u\in V\), the element \((-u)\) satisfying (VS4) is unique.
+	\item \(\forall u\in V\), the element \((-u)\) satisfying (VS4) is unique lol.
 \end{enumerate}
 \end{mythm}
+
+
+\subsection{Examples of Vector Spaces}
+\subsubsection{Function Spaces}
+Let \(X\) be any set, and \(\field\) be any field. The set \(V = \operatorname{Fun}(X, \field)\) is defined as the set of all functions from \(X\) to \(\field\). We equip \(V\) with the following operations of addition and scalar multiplication.
+
+Let \(f,g\in V, \lambda \in \field\). 
+Then we define \(f + g : X \to \field\) by setting
+\[(f+g)(x)=f(x) + g(x), \forall x\in X\] 
+and \(\lambda f : X \to \field\) by setting
+\((\lambda f)(x) = \lambda(f(x))\). Thus \(f+g \in V, \lambda f \in V\).
+
+With these operations, \(V\) is a vector space over \(\field\).
+
+Let us prove (VS2) (commutativity of addition).
+\begin{proof}
+Let \(f,g\in V\). We'd like to prove that \(f+g=g+f\). Observe that 
+\begin{align*}
+	\forall x\in X, (f+g)(x) 	&= f(x)+g(x) \\
+							 	&= g(x)+f(x)\text{, by (F2)} \\
+							 	&= (g+f)(x)
+\end{align*}
+\(\therefore f+g=g+f\).
+\end{proof}
+
+Let us prove (VS3) (existence of 0).
+\begin{proof}
+We need to find some \(g\in V \text{ s.t. } \forall f\in V : f + g = f\).
+Define \(g\in V\) by setting \(g(x)=0, \forall x \in X\). We can safely define \(g\) in this way because \(0\in\field\). Then \((f+g)(x)=f(x)+g(x)=f(x)+0=f(x), \forall x\in X\) by (F3).
+
+\(\therefore f + g = f\)
+\end{proof}
+
+\subsubsection{Continuous Functions}
+If \(X\) is a subset of \(\real\), then \(C(X)\) denotes the set of all continuous functions \(f:X\to\real\). Then \(C(X)\) is a vector space over \(\real\) with the same kind of operations as \(\operatorname{Fun}(X, \field)\). E.g. if \(X=\real\), then the function given by \(f(x)=\sin(5x)-3\cos(7x), \forall x \in \real\), is an element of \(C(X) : f\in C(X)\).
+
+\subsubsection{Polynomials}
+A polynomial with coefficients in \(\field\) in a variable \(t\) is a formal expression of the form
+\[a_n t^n + a_{n-1}t^{n-1} + \dotsb + a_1 t^1 + a_0 t^0\]
+where \(a_n, \dotsc, a_0 \in \field\). We refer to \(a_k\) as the coefficient of \(t^k\) in \(f(t)\). For example, \(3t^3 - 5t^2 + (1/7)t + \sqrt{2}\) is a polynomial with coefficients in \(\real\). When we say that this is a 'formal expression', we mean that \(t\) is a formal variable. In particular, we are \textbf{not} substituting a number (say) for \(t\). 
+
+The usual conventions are used. The order in which the terms of a polynomial are written is immaterial. Also, adding \(0\cdot t^m\) terms does not change the polynomial. 
+
+\begin{mydef}\normalfont
+\(P_\infty = P_\infty(\field)\) denotes the set of all polynomials with coefficients in \(\field\).
+\end{mydef}
+
+We denote by . This is a vector space. Addition and multiplication by scalars are defined term-by-term, which is the usual way:
+\[(a_n t^n+\dotsb+a_1 t+a_0) + (b_n t^n+\dotsb b_1 t + b_0) = (a_n + b_n)t^n+\dotsb+(a_1+b_1)t+(a_0+b_0)\]
+\[\lambda(a_nt^n+\dotsb+a_1t+a_0) = (\lambda a_n)t^n+\dotsb+(\lambda a_1)t+(\lambda a_0)\]
+
+\begin{mydef}[Degree of a polynomial]\normalfont
+The degree of a polynomial \(a_n t^n+\dotsb+a_1t+a_0\) as the largest number \(d\) such that \(a_d\ne 0\). 
+\end{mydef}
+
+\(P_\infty(\field)\) becomes a vector space over \(\field\) with operations
+\[\left(\sum_{k=0}^n{a_kt^k}\right) + \left(\sum_{k=0}^n b_kt^k\right) = \sum_{k=0}^n(a_k+b_k)t^k\]
+%
+and
+%
+\[\lambda\left(\sum_{k=0}^n a_kt^k\right) = \sum_{k=0}^n(\lambda a_k)t^k\]
+
+\begin{mydef}
+\(P_n(\field) = \{f\in P_\infty(\field) : \operatorname{deg}(f) \le n\}\)
+\end{mydef}
+
+\subsection{Basic Properties of a Vector Space}
+\begin{mythm}[Cancellation in sums]\normalfont
+If \(u,v,w\in V\) and \(u+v=u+w\), then \(v=w\).
+\end{mythm}
+
+\begin{proof}
+Since \(u+v=u+w\), we have \((-u)+(u+v)=(-u)+(u+w)\). By (VS1), this implies \(((-u)+u)+v=((-u)+u)+w \Leftrightarrow 0+v=0+w\) by definition of \((-u)\). Now \(0+v=v\) and \(0+w=w\) by definition of \(0\). So \(v=w\).
+\end{proof}
+
+\begin{mythm}\normalfont 
+	Consider a vector space \(V\).
+	\begin{enumerate}
+		\item For all \(u\in V, 0u=\underline{0}\).
+		\item For all \(a\in \field, a0=\underline{0}\).
+		\item For \(a\in\field\) and \(u\in V\), \((-a)u=-(au)=a(-u)\). In particular, \(-u=(-1)u\).
+	\end{enumerate}
+\end{mythm}
+
+\begin{mythm}\normalfont
+Consider a vector space \(V\).
+\begin{enumerate}
+	\item \(\forall a\in\field\) and \(u\in V\), if \(au=\underline{0}\), then either \(a=0\) or \(u=0\).
+	\item (Cancellation in products)
+		\begin{enumerate}
+			\item For \(0\ne a\in\field\) and \(u,v\in V\), if \(au=av\) then \(u=v\).
+			\item For \(a,b\in\field\) and \(0\ne u\in V\), if \(au=bu\) then \(a=b\).
+		\end{enumerate}
+\end{enumerate}
+\end{mythm}
+
+\begin{proof}
+\begin{enumerate}
+	\item If \(a=0\), there is nothing to prove, so assume \(a\ne0\). Since \(au=0\) and \(a\ne0\), we have \(a^{-1}(au)=1u=u\) by the axioms of fields and vector spaces. Hence, \(u=0\), as required.
+	\item \begin{enumerate}
+		\item  We have \(au=av \Leftrightarrow a^{-1}(au)=a^{-1}(av) \Leftrightarrow 1\cdot u = 1\cdot v \Leftrightarrow u=v\)
+		\item Since \(au=bu\), we have \(0=au+(-bu)=au+(-b)u=(a-b)u\), where the second equality uses the previous theorem and the other equalities use the axioms of vector spaces. Now the equality \((a-b)u=0\) implies that either \(a-b=0\) or \(u=0\) by (i). We are given that \(u \ne 0\), so \(a-b=0\), whence \(a=b\).
+	\end{enumerate}
+\end{enumerate}
+\end{proof}
+
+\begin{mythm}\normalfont
+Consider a vector space \(V\).
+\begin{enumerate}
+	\item We have \(a(u_1+\dotsb+u_n) = au_1 + \dotsb+au_n\) if \(a\in\field\) and \(u_1,\dotsc,u_n\in V\).
+	\item We have \(a_1 + \dotsb + a_n)u=a_1 u + \dotsb + a_n u\) if \(a_1,\dotsc,a_n\in\field\) and \(u\in V\).
+\end{enumerate}
+\end{mythm}
+
+\section{Subspaces}
+
+
 
 
